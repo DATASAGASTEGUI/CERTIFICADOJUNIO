@@ -1,0 +1,63 @@
+--------------------------------------------------------------------------------
+- CREAR UN CONTROL DE VERION PARA MI PROYECTO
+
+git init
+
+- CONFIGURAR LAS CREDENCIALES (USUARIO)
+
+CONFIGURACION LOCAL
+CONFIGURACION GLOBAL
+CONDIGURACION SISTEMA
+
+git config user.name xxxxxxxxxxxxxx
+git config user.email xxxxxxxxxxx
+git config user.password xxxxxxxxxx
+
+https://github.com/
+
+- CONTROL VERSION(REPOSITORIO LOCAL)
+
+git status
+git add .
+git commit -m "FOTO 1"
+
+- SUBIR EL PROYECTO DE LOCAL(GIT) AL REMOTO(GITHUB)
+
+1. CONFIGURAR EL REPOSITORIO REMOTO
+git remote add origin https://github.com/walter1102/MIPROYECTO.git
+git remote add origin https://github.com/DATASAGASTEGUI/AAAAPROBANDO.git
+2. SUBIR EL REPOSITORIO LOCAL AL REMOTO
+git push -u -f origin master
+--------------------------------------------------------------------------------
+clear             LIMPIAR PANTALLA
+ls                LISTADO DE ARCHIVOS Y CARPETAS
+ls -a             MOSTRAR ARCHIVOS Y CARPETAS OCULTAS
+touch             CREAR ARCHIVOS EN BLANCO
+rm miarchivo      ELIMINAR ARCHIVO
+rm -rf micarpeta  ELIMINAR CARPETAS
+cat miarchivo     MOSTRAR EL CONTENIDO DE UN ARCHIVO
+mkdir micarpeta   CREAR UNA CARPETA
+
+git log --oneline    MOSTRAR EL HISTORIAL DE COMMIT
+git branch           MOSTRAR LAS RAMAS DE MI PROYECTO
+git checkout         MOSTRAR UNA COMMIT(FOTO)
+--------------------------------------------------------------------------------
+CLONAR UN REPOSITORIO REMOTO
+
+git remote add origin https://github.com/valcarvajal/Bases-Datos1.git
+git remote set-url origin https://github.com/valcarvajal/Bases-Datos1.git
+
+
+git remote -v
+git fetch origin
+git reset --hard origin/master
+
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+

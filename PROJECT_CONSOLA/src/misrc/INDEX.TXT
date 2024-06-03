@@ -1,0 +1,54 @@
+================================================================================
+Principal1: CODIGO ASCII
+Principal2: CONVERSION DECIMAL A BINARIO
+Principal3: CONVERSION BINARIO A DECIMAL
+Principal4: CONCATENAR CADENAS
+
+Principal6: CONTAR EL NUMERO DE VECES QUE APARECE UN LADO EN EL LANZAMIENTO DE DEL DADO 100 VECES
+            VERSION1 USANDO VARIABLE PARA LOS 6 CONTADORES
+            VERSION2 USAR UN VECTOR PARA LOS 6 CONTADORES
+
+
+Principal8: ARRAY UNIDIMENSIONAL (VECTOR)
+            PROMEDIO DE 5 NOTAS
+            FOR: POR INDICE, POR ELEMENTO(FOREACH)
+
+
+Principal9: EVALUAR UNA NOTA: APROBADO O SUSPENSO (ESTRUCTURA CONDICIONAL BINARIA)
+            OPERADOR BINARIO
+Principal11: EVALUAR UNA NOTA:  0 Insuficiente  5  Suficiente  6  Bien  8  Notable 9 Sobresaliente 10
+             ESTRUCTURA CONDICIONAL MULTIPLE
+
+Principal12: Ejercicio 2.7 Página 75 (ESTRUCTURA CONDICIONAL MULTIPLE)
+       
+Principal13: ERROR SEMANTICO: FAREHENINT A CETIGRADOS 
+
+Principal14: FORMULA : s *
+             LIBRERIA: Math.toRadians() ---> radianes = sexagesimal * PI / 180
+                                                  exponente    3
+                       Math.pow(2,3)    --->  base          = 2  = 2*2*2 
+                       Math.pow(2.5,3)  --->  2.5*2.5*2.5  
+
+Pricipal15: Expresiones regulares.
+
+            1 2 33 343 24123 4341324123412      digitos:0123456789  
+                                                [0-9]+
+                                                [0123456789]+
+
+            Luis casa "en un puerto"            [a-zA-Z"]+
+Principal16: VALIDAD LA EDAD
+Principal17: VALIDAR LA ESTATURA 
+Principal18: VALIDAR EL NOMBRE                                             
+================================================================================
+CAMBIO DE VERSION JAVA
+================================================================================
+SERVIDOR(JSP + SERVLET): APACHE TOMCAT
+
+localhost:8081
+127.0.0.1:8081
+================================================================================
+
+
+
+
+
