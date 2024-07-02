@@ -1,0 +1,31 @@
+- ARQUITECTURA CLIENTE/SERVIDOR
+
+SERVIDOR MARIADB (FREE)                          LEVANTAR/BAJAR           (REINICIAR EL SERVIDOR PARA ARREGLAR PROBLEMAS)
+  - IP       : LOCALHOST = 127.0.0.1
+  - PUERTO   : 3306
+
+SERVIDOR MYSQL (ORACLE)
+  - IP       : LOCALHOST = 127.0.0.1
+  - PUERTO   : 3307
+
+CLIENTE WORKBENCH
+CLIENTE APACHE NETBEAN (CONFIGURAR)
+CLIENTE SHELL LINEA DE COMANDOS (MYSQL, MARIADB)
+
+
+
+
+- ARCHIVO DE CONFIGURACION SERVIDOR
+
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe" --defaults-file="C:\ProgramData\MySQL\MySQL Server 8.0\my.ini" MySQL80
+
+com.mysql.cj.jdbc.Driver
+
+jdbc:mysql://localhost:3307/mysql?zeroDateTimeBehavior=CONVERT_TO_NULL [root on Default schema]
+
+
+@ECHO OFF
+TITLE JAVA
+CLS
+java -jar "PROYECTOCONSOLAJAVA.jar" 
+PAUSE

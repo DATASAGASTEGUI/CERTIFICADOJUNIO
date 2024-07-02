@@ -1,0 +1,12 @@
+@ECHO OFF
+TITLE PROGRAMA CMD
+CLS
+ECHO FORMA 1
+FOR /L %%i IN (1,1,5) DO (
+    ECHO %%i
+)
+ECHO FORMA 2
+FOR %%i IN (1 2 3 4 5) DO (
+    ECHO %%i
+)
+PAUSE

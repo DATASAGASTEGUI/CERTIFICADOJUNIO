@@ -1,0 +1,210 @@
+****************************************
+***   DOCUMENTACION OFICIAL DE GIT   ***
+****************************************
+
+https://git-scm.com/docs
+https://git-scm.com/docs/git-restore
+
+************************************
+***   DIFERENCIAS ENTRE COMMIT   ***
+************************************
+
+git show			//Diferencias entre los dos ultimos commits
+git diff antiguo reciente       //Diferencias entre distintos commits
+
+*****************
+***   RAMAS   ***
+*****************
+
+- MOSTRAR LA RAMA EN DONDE ESTAMOS ACTUALMENTE
+  MOSTRAR TODAS LAS RAMAS DE MI REPOSITORIO LOCAL
+
+git branch
+
+- CREAR UNA RAMA
+
+git branch rama1
+
+- CAMBIAR EL NOMBRE DE RAMA1 COMO RAMITA1
+
+git branch -m rama1 ramita1
+
+- CAMBIAR DE RAMA MASTER(RAMA POR DEFECTO) A RAMITA1
+
+git checkout ramita1
+
+- ELIMINAR LA RAMA RAMITA1 (PARA ELIMINAR UNA RAMA TENGO QUE SALIR DE ELLA Y POSICIONARME EN LA RAMA PADRE EN MI CASO LA RAMA MASTER)
+
+git checkout master         //Ir a la rama principal llamada master que es la rama padre y ramita1 la rama hijo
+git branch -d ramita1
+
+- DIFERENCIAS QUE EXISTEN ENTRE DOS RAMAS
+
+git diff master rama1
+git diff rama1 master
+
+- UNIFICAR DOS RAMAS EN UNA SOLA (MERGE)
+
+git checkout ramaAActualizar (Es la que recibe los cambios que es la rama master)
+             master
+
+git merge ramaOrigen ramaDestino
+          rama1      master
+
+****************
+***   PULL   ***
+****************
+
+git pull origin master
+
+****************************************
+***   ELIMINAR O AGREGAR UN REMOTO   ***
+****************************************
+
+git remote -v           //Mostrar la url del remoto ante de eliminar
+
+   origin  https://DATASAGASTEGUI@github.com/DATASAGASTEGUI/PROBANDO2.git (fetch)
+   origin  https://DATASAGASTEGUI@github.com/DATASAGASTEGUI/PROBANDO2.git (push)
+
+git remote rm origin
+
+git remote -v           //Mostrar la url del remoto después de eliminar
+
+   NO SE MUESTRA NADA PORQUE FUE ELIMINADO
+
+git remote add origin https://github.com/DATASAGASTEGUI/PROBANDO2.git //Agregar un nuevo remoto
+
+git remote -v           //Mostrar la url del remoto después de volverle agregar una url a origin
+
+  origin  https://github.com/DATASAGASTEGUI/PROBANDO2.git (fetch)
+  origin  https://github.com/DATASAGASTEGUI/PROBANDO2.git (push)
+
+--------------------------------------------------------------------------------
+GIT REMOTE
+
+En Git,  un  "remote"  es  una referencia a una versión del repositorio que está
+alojada  en  algún lugar en  Internet  o  en  una  red. Normalmente,  el  remoto 
+predeterminado  se  llama  origin. Este es el nombre que Git da al remoto cuando 
+clonas un repositorio.
+
+EL COMANDO "GIT REMOTE RM"
+
+El   comando   git  remote   rm <nombre-del-remoto>  se  usa  para  eliminar  la 
+configuración de un remoto específico de tu repositorio local.
+
+ORIGIN
+
+Supongamos  que  tienes  un  repositorio local con un remoto llamado origin, que
+apunta a la URL de un repositorio en GitHub.
+
+GIT REMOTE RM ORIGIN
+
+El  "git remote rm origin"  elimina el remoto origin de tu repositorio local, lo 
+que implica que Git  ya  no  tendrá  información sobre este remoto. Esto es útil
+para la gestión y reorganización de los remotos asociados a tu repositorio.
+
+PORQUE ELIMINAR UN REMOTO
+
+Hay varias razones por las cuales podrías querer eliminar un remoto:
+
+Cambio de URL: La  URL  del  remoto  ha cambiado y necesitas eliminar el antiguo 
+antes de agregar el nuevo.
+
+Limpieza: Estás limpiando configuraciones de remotos que ya no son relevantes.
+
+Reorganización: Estás   reorganizando   tu   configuración  de  remotos,  quizás 
+añadiendo nuevos remotos con diferentes nombres.
+--------------------------------------------------------------------------------
+
+******************************
+***   ELIMINAR UN COMMIT   ***
+******************************
+
+--------------------------------------------------------------------------------
+ELIMINAR EL ULTIMO COMIT(el 3) DE TAL MANERA QUE EL AREA DE TRABAJO VUELVA AL COMIT 2 PERDIENDO LOS CAMBIOS DEL COMITE 3.
+
+git reset HEAD^ --hard
+R: Ahora el puntero HEAD apunta a la rama principal(master) que es el snapshot 2
+AREA DE TRABAJO SE PERDIO LO DEL COMMIT 3
+System.out.println("1 SNAPSHOT");
+System.out.println("2 SNAPSHOT");
+--------------------------------------------------------------------------------
+ELIMINAR EL ULTIMO COMIT(el 3) DE TAL MANERA QUE EL AREA DE TRABAJO NO PERDIENDO LOS CAMBIOS DEL COMITE 3 OSEA LOS CAMBIOS ACTUALES
+
+git reset HEAD^ --soft
+AREA DE TRABAJO NO SE PIERDE A PESAR DE PERDERSE EL COMMIT 3 los cambios del comit 3 pasaron al area de preparacion
+entonces el area de preparacion tiene lo del area de trabajo
+System.out.println("1 SNAPSHOT");
+System.out.println("2 SNAPSHOT");
+System.out.println("3 SNAPSHOT");
+--------------------------------------------------------------------------------
+
+
+(1) HARD
+
+$ git log --oneline
+209f3cf (HEAD -> master) FOTO 8
+9405464 FOTO 7
+bfd9d85 FOTO 6
+134ef53 FOTO 5
+8772fb0 FOTO 4
+3d9174f FOTO 3
+53ad083 FOTO 2
+a339ee9 FOTO 1
+
+$ git reset --hard 134ef53  //Elimino los commits 6,7,8 (Modifica el area de trabajo a la foto 5)
+HEAD is now at 134ef53 FOTO 5
+
+$ git log --oneline
+134ef53 (HEAD -> master) FOTO 5
+8772fb0 FOTO 4
+3d9174f FOTO 3
+53ad083 FOTO 2
+a339ee9 FOTO 1
+
+(2) SOFT
+
+$ git reset --hard 134ef53  //Elimino los commits 6,7,8 (El area de trabajo permanece intacta y todos los cambios pasan al area de preparación)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

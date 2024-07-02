@@ -1,0 +1,278 @@
+--------------------------------------------------------------------------------
+- QUE ES GIT
+
+Es un control de versión.
+--------------------------------------------------------------------------------
+- COMANDOS BASICOS PARA EJECUTAR DESDE LA CONSOLA DE GIT
+
+clear             			LIMPIAR PANTALLA
+pwd                         MOSTRAR LA RUTA DONDE ME ENCUENTRO
+ls                			LISTADO DE ARCHIVOS Y CARPETAS
+ls -a             			MOSTRAR ARCHIVOS Y CARPETAS OCULTAS
+touch miarchivo   			CREAR ARCHIVOS EN BLANCO
+rm miarchivo      			ELIMINAR ARCHIVO
+rm -rf micarpeta  			ELIMINAR CARPETAS Y SUBCARPETAS ANIDADAS (TODO RECURSIVAMENTE)
+cat miarchivo     			MOSTRAR EL CONTENIDO DE UN ARCHIVO
+mkdir micarpeta   			CREAR UNA CARPETA
+cd micarpeta      			INGRESAR A UNA CARPETA
+cd ..             			SALIR DE UNA CARPETA HACIA LA CARPETA PADRE
+echo "Hola Mundo" > miarchivo.txt 	CREAR UN ARCHIVO Y ESCRIBE UN TEXTO EN EL. SI EXISTE LO ELIMINA Y LO VUELVE A CREAR
+echo "Hola Mundo" >> miarchivo.txt	AÑADE UN TEXTO A UN ARCHIVO QUE YA EXISTE. SI NO EXISTE LO CREA PRIMERO
+--------------------------------------------------------------------------------
+- COMANDO GIT PARA CREAR UN CONTROL DE VERION PARA UN PROYECTO
+
+git init
+--------------------------------------------------------------------------------
+- CONFIGURAR LAS CREDENCIALES (USUARIO)
+
+* EXISTEN 3 TIPOS DE CREDENCIALES
+
+CONFIGURACION LOCAL
+CONFIGURACION GLOBAL
+CONDIGURACION SISTEMA
+
+* RUTAS DONDE SE GUARDAN LAS CREDENCIALES
+
+CONFIGURACION DEL SISTEMA
+C:\Program Files\Git\etc\gitconfig
+
+git config --system --list
+
+CONFIGURACION GLOBAL
+C:\Users\RYZEN\.gitconfig
+
+git config --global --list
+
+CONFIGURACION LOCAL
+C:\MIPROYECTO\.git\config
+
+git config --local --list
+
+* TIPO CONFIGURACION LOCAL
+
+git config user.name DATASAGA
+git config user.email datasaga@gmail.com
+git config user.password abcdefgh
+
+* LAS CREDENCIALES LOCALES SE GUARDAN EN EL ARCHIVO CONFIG
+
+[user]
+	name = DATASAGASTEGUI
+	email = datasagamadrid@gmail.com
+	password = XXXXXXXXXXXXX
+--------------------------------------------------------------------------------
+- COMANDO GIT PARA REALIZAR MI PRIMER COMMIT(FOTOGRAFIA) 
+
+Un commit no es mas que actulizar mi repositorio local  que  refleje los ultimos
+cambios de mi área de trabajo.
+
+git status		MOSTRAR EL ESTADO DE MI AREA DE TRABAJO 
+git add .		PASAR AL AREA DE PREPARACION TODOS LOS CAMBIOS ENCONTRADOS EN EL AREA DE TRABAJO
+git commit -m "FOTO 1"	TOMAR LA FOTOGRAFIA DE LOS CAMBIOS DEL AREA DE TRABAJO Y GUARDAR DICHOS CAMBIOS EN EL REPOSITORIO LOCAL
+git log --oneline    	MOSTRAR EL HISTORIAL DE COMMIT(FOTOGRAFIAS) GUARDADOS EN EL REPOSITORIO LOCAL DE MANERA CORTA
+
+git log                 MOSTRAR EL HISTORIAL DE COMMIT DE MANERA LARGA
+
+git commit --amend -m "Foto ultima realizada"		PERMITE HACER COMMIT SIEMPRE EN EL ULTIMO REALIZADO
+git checkout DIRECCION_DEL_COMMIT      			CAMBIAR A UN COMMIT CUALQUIERA
+git checkout master                    			VOLVER AL COMMIT MAS RECIENTE 
+--------------------------------------------------------------------------------
+- COMANDO GIT QUE PERMITE SACAR UN ARCHIVO DEL AREA DE PREPARACION
+
+git rm --cached archivo.txt
+
+- RECUPERAR TODOS LOS ARCHIVOS DEL ULTIMO COMMIT
+
+git checkout .
+--------------------------------------------------------------------------------
+- SUBIR PROYECTO DESDE EL REPOSITORIO LOCAL(GIT) AL REPOSITORIO REMOTO(GITHUB)
+
+1. CONFIGURAR EL REPOSITORIO REMOTO A DONDE SE SUBIRAR EL REPOSITORIO LOCAL
+git remote add origin https://github.com/DATASAGASTEGUI/MIPROYECTO.git
+
+2. SUBIR EL REPOSITORIO LOCAL AL REMOTO
+git push -u -f origin master
+
+3. SUBIR LA RAMA1 DEL RESPOSITORIO LOCAL AL REMOTO
+git push -u -f origin RAMA1
+--------------------------------------------------------------------------------
+- COMANDO GIT PARA MOSTRAR  EL  CONTENIDO DE LA  VARIABLE ORIGIN, QUE  TIENE  LA 
+  URL DEL RESPOSITORIO REMOTE A DONDE SE SUBIRA EL RESPOSITORIO LOCAL.
+
+git remote show origin
+
+- COMANDO GIT PARA OBTENER LA URL DEL REMOTO ASOCIADA EN LA VARIABLE ORIGIN
+
+git remote get-url origin
+
+- COMANDO GIT PARA CAMBIAR LA URL DEL REMOTO ASOCIADA EN LA VARIABLE ORIGIN
+
+git remote set-url origin https://github.com/DATASAGASTEGUI/MIPROYECTO1.git 
+
+- LISTAR TODAS LAS URLS DE LOS REMOTOS ASOCIADOS CON EL REPOSITORIO LOCAL
+
+git remote -v
+
+- SI SE DESE TENER MULTIPLES UBICACIONES REMOTAS PARA EL REPOSITORIO LOCAL
+
+git remote add origin1 https://github.com/DATASAGASTEGUI/MIPROYECTO.git   
+git remote add origin2 https://github.com/DATASAGASTEGUI/MIPROYECTO1.git
+
+git push -u -f origin1 master
+git push -u -f origin2 master
+
+git remote -v       PARA VER TODOS LAS URLS DE LOS REMOTOS ASOCIADOS AL REMPOSITORIO LOCAL
+
+- ELIMINAR LA VARIABLE ORIGIN1 QUE TIENE LA URL DEL REMOTO
+
+git remote remove origin1
+git remote -v       VERIFICAMOS QUE YA NO EXISTE ESTE REMOTO
+
+git remote remove origin						TAMBIEN PODEMOS ELIMINAR EL REMOTE ORIGIN 
+git remote add origin https://github.com/DATASAGASTEGUI/MIPROYECTO.git  PERO LA PODEMOS VOLVER A CREAR
+
+git remote remove origin						     TAMBIEN PODEMOS ELIMINAR EL REMOTE ORIGIN 
+git remote set-url origin https://github.com/DATASAGASTEGUI/MIPROYECTO1.git  PERO ESTA NO SERIA LA FORMA DE VOLVERLA A CREAR PORQUE ESTO CAMBIA A UNA VARIABLE QUE YA EXISTE PRIMERO HAY QUE CREAR LA VARIABLE COMO EL EJEMPLO ANTERIOR 
+--------------------------------------------------------------------------------
+- MOSTRAR LA RAMA EN DONDE ESTAMOS ACTUALMENTE
+
+git branch
+
+- CREAR UNA RAMA
+
+git branch rama1
+
+- CAMBIAR EL NOMBRE DE RAMA1 COMO RAMITA1
+
+git branch -m rama1 ramita1
+
+- CAMBIAR DE RAMA MASTER A RAMITA1
+
+git checkout ramita1
+
+- ELIMINAR LA RAMA RAMITA1 (PARA ELIMINAR UNA RAMA TENGO QUE SALIR DE ELLA Y POSICIONARME EN LA RAMA MASTER)
+
+git checkout master         Ir a la rama principal
+git branch -d ramita1
+
+- DIFERENCIAS QUE EXISTEN ENTRE DOS RAMAS
+
+git diff master rama1
+git diff rama1 master
+
+- UNIFICAR DOS RAMAS EN UNA SOLA (MERGE)
+
+git checkout ramaAActualizar (Es la que recibe los cambios que es la rama master)
+             master
+
+git merge ramaOrigen ramaDestino
+          rama1      master
+--------------------------------------------------------------------------------
+- RECUPERAR UN ARCHIVO ELIMINADO DEL AREA DE TRABAJO DESDE EL ULTIMO COMMIT
+
+(1)
+rm Ejemplo2.java
+git checkout HEAD -- Ejemplo2.java
+(2)
+rm Ejemplo?.java
+git checkout HEAD -- Ejemplo?.java
+--------------------------------------------------------------------------------
+- GIT EN APACHE NETBEANS
+
+1. CREAR UN CONTROL DE VERSION PARA MI PROYECTO: 
+
+Team,Git,Initialize Repository...
+
+2. CONFIGURAR CREDENCIALES: BD NOMBRE_PROYECTO,Git,Repository,Open Configuration
+
+[user]
+	name = ZZZZZZZZZZZZZZZZZZZ
+	email = yyyyyyyyyyyyyyyyyy
+	password = XXXXXXXXXXXXXXXXXXXXXXX
+
+3. CREAR NUESTRO PRIMER COMMIT (ACTUALIZAR EL REPOSITORIO LOCAL CON LOS CAMBIOS DE NUESTRA AREA DE TRABAJO)
+
+BD NOMBRE_PROYECTO,Git,Add,Commit
+
+4. SUBIR NUESTRO REPOSITORO LOCAL(GIT) AL REPOSITORIO REMOTO(GITHUB)
+
+BD NOMBRE_PROYECTO,Git,Remote,Push...
+
+5. TRAER LOS CAMBIOS DEL REPOSITORIO REMOTO(GITHUB) HACIA EL REPOSITORIO LOCAL(GIT)
+
+BD NOMBRE_PROYECTO,Git,Remote,Pull...
+--------------------------------------------------------------------------------
+- DIFERENCIA ENTRE COMMITS
+
+git show                   SE MUESTRA LO QUE SE AGREGO ENTRE UN COMMIT Y OTRO. LOS ULTIMOS DOS COMMIT 
+git diff antiguo reciente  SE MUESTRA LO QUE SE AGREGO ENTRE DOS COMMITS DISTINTOS NO NECESARIAMENTE SON LOS DOS ULTIMOS PUEDE SER CUALQUIERA
+--------------------------------------------------------------------------------
+- CLONAR UN RESPOSITORIO REMOTO HACIA UN REPOSITORIO LOCAL. POR DEFECTO SE CLONA TODAS LAS RAMAS DEL REMOTO AL LOCAL
+
+git clone https://github.com/DATASAGASTEGUI/MIPROYECTO1.git
+
+git branch RAMA1   TENGO QUE CREAR RAMA1 PARA PODER LUEGO VERLA EN MI REPOSITORIO LOCAL
+git checkout RAMA1
+git log --oneline  VERIFICO QUE EFECTIVAMENTE SE HA TRAIDO TODA LA RAMA1 CON SUS COMMIT
+
+- CLONAR SOLO UNA RAMA ESPECIFICA
+
+git clone -b RAMA1 https://github.com/DATASAGASTEGUI/MIPROYECTO1.git
+--------------------------------------------------------------------------------
+- ELIMINAR COMMIT
+
+git reset IC1
+git reset --soft IDENTIFICADOR_COMMIT			NO SE MOFIDIFICA AREA DE TRABAJO. TODOS LOS CAMBIOS PASAN AL AREA DE PREPARACION
+
+git reset --hard IDENTIFICADOR_COMMIT			MODIFICA EL AREA DE TRABAJO
+--------------------------------------------------------------------------------
+- DIFERENCIAS
+
+(1)
+Este comando garantiza que tu rama local master será exactamente igual a la rama master del repositorio remoto, sin conflictos de fusión.
+Úsalo cuando quieras asegurarte de que tu rama local sea idéntica a la rama remota, descartando cualquier cambio local no comprometido.
+
+git checkout main
+git fetch origin
+git reset --hard origin/master
+
+(2)
+Úsalo cuando quieras integrar los cambios remotos con tus cambios locales y estás dispuesto a resolver posibles conflictos de fusión.
+git pull origin master
+
+Ambos enfoques tienen sus usos dependiendo de tus necesidades y la situación del proyecto en el que estás trabajando.
+--------------------------------------------------------------------------------
+- ESCENARIO 1
+
+git remote add origin "https://github.com/DATASAGASTEGUI/MIPROYECTO.git"
+git push -u -f origin master
+
+- ESCENARIO 2
+
+git remote add origin "https://github.com/DATASAGASTEGUI/MIPROYECTO.git"
+git remote set-url origin https://github.com/DATASAGASTEGUI/MIPROYECTO1.git 
+git push -u -f origin master
+
+git push -u -f origin RAMA1
+
+- ESCENARIO 3
+
+* CASA
+git remote add origin "https://github.com/DATASAGASTEGUI/MIPROYECTO1.git"
+git remote set-url origin https://github.com/DATASAGASTEGUI/MIPROYECTO1.git 
+git push -u -f origin master
+
+* CAMPUSFP
+git remote add origin "https://github.com/DATASAGASTEGUI/MIPROYECTO1.git"
+git remote set-url origin https://github.com/DATASAGASTEGUI/MIPROYECTO1.git 
+git pull origin master
+
+
+--------------------------------------------------------------------------------
+- BIBLIOGRAFIA
+
+https://github.com/
+https://www.youtube.com/watch?v=qHQXUrrubcs
+
+
+
